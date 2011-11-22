@@ -6,10 +6,6 @@
 	<array>
 		<string>man</string>
 	</array>
-	<key>foldingStartMarker</key>
-	<string>^[A-Z](?&gt;\S|\s(?!\s))*$</string>
-	<key>foldingStopMarker</key>
-	<string>^_{2,}$</string>
 	<key>name</key>
 	<string>Man</string>
 	<key>patterns</key>
