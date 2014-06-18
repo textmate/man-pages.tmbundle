@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>res=$(/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -rui -e"print TextMate::UI.request_string(:title =&gt; 'Manual Page', :prompt =&gt; 'What manual page do you want?', :button1 =&gt; 'View', :button2 =&gt; 'Cancel').to_s")
+	<string>res=$(ruby18 -rui -e"print TextMate::UI.request_string(:title =&gt; 'Manual Page', :prompt =&gt; 'What manual page do you want?', :button1 =&gt; 'View', :button2 =&gt; 'Cancel').to_s")
 
 [[ -z "$res" ]] &amp;&amp; exit_discard
 
