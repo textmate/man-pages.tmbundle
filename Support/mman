@@ -13,7 +13,8 @@ else
 fi
 [ "$manpage" ] || exit 0
 
-tmp=`basename $manpage .gz`.man
+tmp=`mktemp -t TextMate`
+trap 'rm -f "$tmp"' EXIT
 
 (
   echo $manpage | fmt -c -w 78;
@@ -23,10 +24,6 @@ tmp=`basename $manpage .gz`.man
       print "_"x (length($_)-1),"\n" if /^[A-Z](?:(?:\S+\s\S+)+|\S+)$/;
       END {print "__"}
   '
-) > $tmp
+) > "$tmp"
 
-chmod 400 $tmp
-mate $tmp
-(sleep 2; rm -f $tmp) > /dev/null 2>&1 </dev/null &
-
-
+"$TM_MATE" < "$tmp" --name "$(basename $manpage .gz).man" --no-wait
