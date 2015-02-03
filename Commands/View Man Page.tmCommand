@@ -9,7 +9,7 @@
 
 [[ -z "$res" ]] &amp;&amp; exit_discard
 
-$("$TM_BUNDLE_SUPPORT/mman"&lt;&lt;&lt;"$res")
+"$TM_BUNDLE_SUPPORT/mman" &lt;&lt;&lt; "$res"
 </string>
 	<key>input</key>
 	<string>none</string>
