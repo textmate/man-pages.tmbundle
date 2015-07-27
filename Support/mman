@@ -26,4 +26,4 @@ trap 'rm -f "$tmp"' EXIT
   '
 ) > "$tmp"
 
-"$TM_MATE" < "$tmp" --name "$(basename $manpage .gz).man" --no-wait
+"$TM_MATE" < "$tmp" --name "$(basename $manpage .gz).man" --no-wait --type text.man
