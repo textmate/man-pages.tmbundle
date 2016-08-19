@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>res=$(ruby18 -rui -e"print TextMate::UI.request_string(:title =&gt; 'Manual Page', :prompt =&gt; 'What manual page do you want?', :button1 =&gt; 'View', :button2 =&gt; 'Cancel').to_s")
+	<string>#!/bin/bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+res=$(ruby18 -rui -e"print TextMate::UI.request_string(:title =&gt; 'Manual Page', :prompt =&gt; 'What manual page do you want?', :button1 =&gt; 'View', :button2 =&gt; 'Cancel').to_s")
 
 [[ -z "$res" ]] &amp;&amp; exit_discard
 
@@ -13,13 +16,19 @@
 </string>
 	<key>input</key>
 	<string>none</string>
-	<key>keyEquivalent</key>
-	<string></string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>name</key>
 	<string>View Man Page</string>
-	<key>output</key>
-	<string>showAsTooltip</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
 	<key>uuid</key>
 	<string>71AB34F4-755D-4F16-A45F-93CD88246ED7</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
